@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pintar Tabla en Diagonal</title>
+    <style>
+    table {
+        border-collapse: collapse;
+    }
+    td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <table id="tabla"></table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var tabla = document.getElementById('tabla');
+            
+            // Crear filas y celdas
+            for (var i = 0; i < 5; i++) {
+                var fila = document.createElement('tr');
+                tabla.appendChild(fila);
+                
+                for (var j = 0; j < 5; j++) {
+                    var celda = document.createElement('td');
+                
+                    var numero = i * 5 + j + 1;
+                    celda.textContent = numero;
+
+                    // Pintar en diagonal
+                    if (i === j) {
+                        celda.style.backgroundColor = 'red';
+                    }
+                    
+                    fila.appendChild(celda);
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
